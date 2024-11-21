@@ -1,3 +1,4 @@
+import 'package:cell_step/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../constants/colors.dart';
@@ -449,24 +450,23 @@ class _LoginScreenState extends State<LoginScreen>
 
   Widget _buildSignUpButton() {
     return TextButton(
-      onPressed: () {
-        HapticFeedback.selectionClick();
-        // TODO: 회원가입 화면으로 이동
-      },
-      style: TextButton.styleFrom(
-        foregroundColor: AppColors.neonBlue,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 8,
+        onPressed: () {
+          HapticFeedback.selectionClick();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SignupScreen()),
+          );
+        },
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.neonBlue,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 8,
+          ),
         ),
-      ),
-      child: const Text(
-        '계정이 없으신가요? 회원가입',
-        style: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    );
+        child: const Text(
+          '계정이 없으신가요? 회원가입',
+          style: TextStyle(fontSize: 14),
+        ));
   }
 }
